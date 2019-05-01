@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::CompositorLogic",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_compositor_logic.html",tooltip="Interface for compositor logics, which can be automatically binded to compositors, allowing per-compositor logic (such as attaching a relevant listener) to happen automatically. "];
+}

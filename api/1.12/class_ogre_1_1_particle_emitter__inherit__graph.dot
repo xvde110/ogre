@@ -1,0 +1,27 @@
+digraph "Ogre::ParticleEmitter"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node0 [label="Ogre::ParticleEmitter",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Ogre::StringInterface",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_string_interface.html",tooltip="Class defining the common interface which classes can use to present a reflection-style, self-defining parameter set to callers. "];
+  Node2 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::Particle",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_particle.html",tooltip="Class representing a single particle instance. "];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="FXAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::AreaEmitter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_area_emitter.html",tooltip="Particle emitter which emits particles randomly from points inside an area (box, sphere, ellipsoid whatever subclasses choose to be). "];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::BoxEmitter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_box_emitter.html",tooltip="Particle emitter which emits particles randomly from points inside a box. "];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Ogre::CylinderEmitter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_cylinder_emitter.html",tooltip="Particle emitter which emits particles randomly from points inside a cylinder. "];
+  Node4 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Ogre::EllipsoidEmitter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_ellipsoid_emitter.html",tooltip="Particle emitter which emits particles randomly from points inside an ellipsoid. "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Ogre::HollowEllipsoidEmitter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_hollow_ellipsoid_emitter.html",tooltip="Particle emitter which emits particles randomly from points inside a hollow ellipsoid. "];
+  Node4 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Ogre::RingEmitter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_ring_emitter.html",tooltip="Particle emitter which emits particles randomly from points inside a ring (e.g. "];
+  Node0 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Ogre::PointEmitter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_point_emitter.html",tooltip="Particle emitter which emits particles from a single point. "];
+}

@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::Pass::HashFunc",height=0.2,width=0.4,color="black",URL="$struct_ogre_1_1_pass_1_1_hash_func.html",tooltip="Definition of a functor for calculating the hashcode of a Pass. "];
+}

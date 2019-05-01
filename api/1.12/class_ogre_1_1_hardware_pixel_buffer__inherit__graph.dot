@@ -1,0 +1,36 @@
+digraph "Ogre::HardwarePixelBuffer"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::HardwarePixelBuffer",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Ogre::HardwareBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_hardware_buffer.html",tooltip="Abstract class defining common features of hardware buffers. "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="BufferAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::D3D11HardwarePixel\lBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_d3_d11_hardware_pixel_buffer.html"];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::D3D9HardwarePixelBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_d3_d9_hardware_pixel_buffer.html"];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::GLHardwarePixelBuffer\lCommon",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_hardware_pixel_buffer_common.html"];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Ogre::GL3PlusHardwarePixel\lBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l3_plus_hardware_pixel_buffer.html"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Ogre::GL3PlusRenderBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l3_plus_render_buffer.html",tooltip="Renderbuffer surface. "];
+  Node6 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Ogre::GL3PlusTextureBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l3_plus_texture_buffer.html",tooltip="Texture surface. "];
+  Node5 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Ogre::GLES2HardwarePixel\lBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_e_s2_hardware_pixel_buffer.html"];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Ogre::GLES2RenderBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_e_s2_render_buffer.html",tooltip="Renderbuffer surface. "];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Ogre::GLES2TextureBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_e_s2_texture_buffer.html",tooltip="Texture surface. "];
+  Node5 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Ogre::GLHardwarePixelBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_hardware_pixel_buffer.html"];
+  Node12 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Ogre::GLRenderBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_render_buffer.html",tooltip="Renderbuffer surface. "];
+  Node12 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="Ogre::GLTextureBuffer",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_texture_buffer.html",tooltip="Texture surface. "];
+}

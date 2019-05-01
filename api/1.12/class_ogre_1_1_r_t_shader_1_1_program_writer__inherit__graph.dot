@@ -1,0 +1,17 @@
+digraph "Ogre::RTShader::ProgramWriter"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node0 [label="Ogre::RTShader::ProgramWriter",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="RTShaderSystemAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::RTShader::CGProgram\lWriter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_c_g_program_writer.html",tooltip="CG target language writer implementation. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::RTShader::HLSLProgram\lWriter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_h_l_s_l_program_writer.html",tooltip="HLSL target language writer implementation. "];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::RTShader::GLSLProgram\lWriter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_g_l_s_l_program_writer.html",tooltip="GLSL target language writer implementation. "];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::RTShader::GLSLESProgram\lWriter",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_g_l_s_l_e_s_program_writer.html",tooltip="GLSL ES target language writer implementation. "];
+}

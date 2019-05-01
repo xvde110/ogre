@@ -1,0 +1,38 @@
+digraph "Ogre::RegionSceneQuery"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::RegionSceneQuery",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Ogre::SceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_scene_query.html",tooltip="A class for performing queries on a scene. "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SceneMgtAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node3 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::SceneQueryListener",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_scene_query_listener.html",tooltip="This optional class allows you to receive per-result callbacks from SceneQuery executions instead of ..."];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::AxisAlignedBoxScene\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_axis_aligned_box_scene_query.html",tooltip="Specialises the SceneQuery class for querying within an axis aligned box. "];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::DefaultAxisAligned\lBoxSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_default_axis_aligned_box_scene_query.html",tooltip="Default implementation of AxisAlignedBoxSceneQuery. "];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Ogre::OctreeAxisAlignedBox\lSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_octree_axis_aligned_box_scene_query.html",tooltip="Octree implementation of AxisAlignedBoxSceneQuery. "];
+  Node5 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Ogre::PCZAxisAlignedBoxScene\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_p_c_z_axis_aligned_box_scene_query.html",tooltip="PCZ implementation of AxisAlignedBoxSceneQuery. "];
+  Node0 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Ogre::PlaneBoundedVolume\lListSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_plane_bounded_volume_list_scene_query.html",tooltip="Specialises the SceneQuery class for querying within a plane-bounded volume. "];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Ogre::DefaultPlaneBounded\lVolumeListSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_default_plane_bounded_volume_list_scene_query.html",tooltip="Default implementation of PlaneBoundedVolumeListSceneQuery. "];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Ogre::OctreePlaneBounded\lVolumeListSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_octree_plane_bounded_volume_list_scene_query.html",tooltip="Octree implementation of PlaneBoundedVolumeListSceneQuery. "];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Ogre::PCZPlaneBoundedVolume\lListSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_p_c_z_plane_bounded_volume_list_scene_query.html",tooltip="PCZ implementation of PlaneBoundedVolumeListSceneQuery. "];
+  Node0 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Ogre::SphereSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_sphere_scene_query.html",tooltip="Specialises the SceneQuery class for querying within a sphere. "];
+  Node12 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Ogre::DefaultSphereScene\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_default_sphere_scene_query.html",tooltip="Default implementation of SphereSceneQuery. "];
+  Node13 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="Ogre::OctreeSphereSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_octree_sphere_scene_query.html",tooltip="Octree implementation of SphereSceneQuery. "];
+  Node13 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="Ogre::PCZSphereSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_p_c_z_sphere_scene_query.html",tooltip="PCZ implementation of SphereSceneQuery. "];
+}

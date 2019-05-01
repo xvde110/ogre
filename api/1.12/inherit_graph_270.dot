@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::StaticFaceGroup",height=0.2,width=0.4,color="black",URL="$struct_ogre_1_1_static_face_group.html",tooltip="Collects a group of static i.e. "];
+}

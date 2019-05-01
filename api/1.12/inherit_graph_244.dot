@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::SceneManager\l::materialLess",height=0.2,width=0.4,color="black",URL="$struct_ogre_1_1_scene_manager_1_1material_less.html",tooltip="Comparator for material map, for sorting materials into render order (e.g. "];
+}

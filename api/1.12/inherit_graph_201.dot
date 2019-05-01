@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::PropertyValue",height=0.2,width=0.4,color="black",URL="$struct_ogre_1_1_property_value.html",tooltip="A simple structure designed just as a holder of property values between the instances of objects they..."];
+}

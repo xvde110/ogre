@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::Technique::GPUVendorRule",height=0.2,width=0.4,color="black",URL="$struct_ogre_1_1_technique_1_1_g_p_u_vendor_rule.html",tooltip="Rule controlling whether technique is deemed supported based on GPU vendor. "];
+}

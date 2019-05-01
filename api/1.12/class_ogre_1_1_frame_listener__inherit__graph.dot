@@ -1,0 +1,14 @@
+digraph "Ogre::FrameListener"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::FrameListener",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Ogre::FrameTimeController\lValue",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_frame_time_controller_value.html",tooltip="Predefined controller value for getting the latest frame time. "];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::Volume::Chunk",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_volume_1_1_chunk.html",tooltip="A single volume chunk mesh. "];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="OgreBites::ApplicationContextBase",height=0.2,width=0.4,color="black",URL="$class_ogre_bites_1_1_application_context_base.html",tooltip="Base class responsible for setting up a common context for applications. "];
+}

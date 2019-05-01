@@ -1,0 +1,18 @@
+digraph "Ogre::SceneManagerFactory"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::SceneManagerFactory",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="SceneMgtAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::BspSceneManagerFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_bsp_scene_manager_factory.html",tooltip="Factory for BspSceneManager. "];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::DefaultSceneManager\lFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_default_scene_manager_factory.html",tooltip="Factory for default scene manager. "];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::OctreeSceneManager\lFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_octree_scene_manager_factory.html",tooltip="Factory for OctreeSceneManager. "];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::PCZSceneManagerFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_p_c_z_scene_manager_factory.html",tooltip="Factory for PCZSceneManager. "];
+}

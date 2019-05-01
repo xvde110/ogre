@@ -1,0 +1,21 @@
+digraph "Ogre::DefaultAxisAlignedBoxSceneQuery"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node0 [label="Ogre::DefaultAxisAligned\lBoxSceneQuery",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Ogre::AxisAlignedBoxScene\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_axis_aligned_box_scene_query.html",tooltip="Specialises the SceneQuery class for querying within an axis aligned box. "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::RegionSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_region_scene_query.html",tooltip="Abstract class defining a query which returns single results from a region. "];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::SceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_scene_query.html",tooltip="A class for performing queries on a scene. "];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="SceneMgtAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node5 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::SceneQueryListener",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_scene_query_listener.html",tooltip="This optional class allows you to receive per-result callbacks from SceneQuery executions instead of ..."];
+  Node0 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Ogre::OctreeAxisAlignedBox\lSceneQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_octree_axis_aligned_box_scene_query.html",tooltip="Octree implementation of AxisAlignedBoxSceneQuery. "];
+  Node0 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Ogre::PCZAxisAlignedBoxScene\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_p_c_z_axis_aligned_box_scene_query.html",tooltip="PCZ implementation of AxisAlignedBoxSceneQuery. "];
+}

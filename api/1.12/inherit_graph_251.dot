@@ -1,0 +1,26 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::ScriptCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_script_compiler_event.html",tooltip="This struct is a base class for events which can be thrown by the compilers and caught by subscribers..."];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Ogre::CreateCompositorScript\lCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_create_compositor_script_compiler_event.html"];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::CreateGpuProgramScript\lCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_create_gpu_program_script_compiler_event.html"];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::CreateGpuSharedParameters\lScriptCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_create_gpu_shared_parameters_script_compiler_event.html"];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::CreateHighLevelGpu\lProgramScriptCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_create_high_level_gpu_program_script_compiler_event.html"];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::CreateMaterialScript\lCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_create_material_script_compiler_event.html"];
+  Node0 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Ogre::CreateParticleSystem\lScriptCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_create_particle_system_script_compiler_event.html"];
+  Node0 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Ogre::PreApplyTextureAliases\lScriptCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_pre_apply_texture_aliases_script_compiler_event.html"];
+  Node0 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Ogre::ProcessNameExclusion\lScriptCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_process_name_exclusion_script_compiler_event.html"];
+  Node0 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Ogre::ProcessResourceName\lScriptCompilerEvent",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_process_resource_name_script_compiler_event.html"];
+}

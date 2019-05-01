@@ -1,0 +1,36 @@
+digraph "Ogre::RTShader::SubRenderStateFactory"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::RTShader::SubRender\lStateFactory",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="RTShaderSystemAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::RTShader::FFPAlpha\lTestFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_f_f_p_alpha_test_factory.html"];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::RTShader::FFPColour\lFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_f_f_p_colour_factory.html",tooltip="A factory that enables creation of FFPColour instances. "];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::RTShader::FFPFogFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_f_f_p_fog_factory.html",tooltip="A factory that enables creation of FFPFog instances. "];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::RTShader::FFPLighting\lFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_f_f_p_lighting_factory.html",tooltip="A factory that enables creation of FFPLighting instances. "];
+  Node0 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Ogre::RTShader::FFPTexturing\lFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_f_f_p_texturing_factory.html",tooltip="A factory that enables creation of FFPTexturing instances. "];
+  Node0 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Ogre::RTShader::FFPTransform\lFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_f_f_p_transform_factory.html",tooltip="A factory that enables creation of FFPTransform instances. "];
+  Node0 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Ogre::RTShader::Hardware\lSkinningFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_hardware_skinning_factory.html",tooltip="A factory that enables creation of HardwareSkinning instances. "];
+  Node0 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Ogre::RTShader::Integrated\lPSSM3Factory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_integrated_p_s_s_m3_factory.html",tooltip="A factory that enables creation of IntegratedPSSM3 instances. "];
+  Node0 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Ogre::RTShader::LayeredBlending\lFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_layered_blending_factory.html",tooltip="A factory that enables creation of LayeredBlending instances. "];
+  Node0 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Ogre::RTShader::NormalMap\lLightingFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_normal_map_lighting_factory.html",tooltip="A factory that enables creation of NormalMapLighting instances. "];
+  Node0 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Ogre::RTShader::PerPixel\lLightingFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_per_pixel_lighting_factory.html",tooltip="A factory that enables creation of PerPixelLighting instances. "];
+  Node0 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Ogre::RTShader::TextureAtlas\lSamplerFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_texture_atlas_sampler_factory.html",tooltip="A factory that enables creation of TextureAtlasSampler instances. "];
+  Node0 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="Ogre::RTShader::Triplanar\lTexturingFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_r_t_shader_1_1_triplanar_texturing_factory.html",tooltip="A factory that enables creation of TriplanarMapping instances. "];
+}

@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::LodOutsideMarker",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_lod_outside_marker.html",tooltip="This class will mark vertices of a mesh, which are visible from far away (from outside). "];
+}

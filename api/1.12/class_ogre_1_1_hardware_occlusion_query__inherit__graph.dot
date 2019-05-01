@@ -1,0 +1,20 @@
+digraph "Ogre::HardwareOcclusionQuery"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::HardwareOcclusionQuery",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="RenderSysAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::D3D11HardwareOcclusion\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_d3_d11_hardware_occlusion_query.html",tooltip="This is a class that is the DirectX9 implementation of hardware occlusion testing. "];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::D3D9HardwareOcclusion\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_d3_d9_hardware_occlusion_query.html",tooltip="This is a class that is the DirectX9 implementation of hardware occlusion testing. "];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::GL3PlusHardwareOcclusion\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l3_plus_hardware_occlusion_query.html",tooltip="This is a class that is the base class of the query class for hardware occlusion. ..."];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::GLES2HardwareOcclusion\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_e_s2_hardware_occlusion_query.html"];
+  Node0 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Ogre::GLHardwareOcclusion\lQuery",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_hardware_occlusion_query.html",tooltip="This is a class that is the base class of the query class for hardware occlusion. ..."];
+}

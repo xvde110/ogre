@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::TangentSpaceCalc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_tangent_space_calc.html",tooltip="Class for calculating a tangent space basis. "];
+}

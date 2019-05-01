@@ -1,0 +1,32 @@
+digraph "Ogre::MovableObjectFactory"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::MovableObjectFactory",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="MovableAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::BillboardChainFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_billboard_chain_factory.html",tooltip="Factory object for creating BillboardChain instances. "];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::BillboardSetFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_billboard_set_factory.html",tooltip="Factory object for creating BillboardSet instances. "];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::EntityFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_entity_factory.html",tooltip="Factory object for creating Entity instances. "];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::LightFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_light_factory.html",tooltip="Factory object for creating Light instances. "];
+  Node0 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Ogre::ManualObjectFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_manual_object_factory.html",tooltip="Factory object for creating ManualObject instances. "];
+  Node0 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Ogre::ParticleSystemFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_particle_system_factory.html",tooltip="Factory object for creating ParticleSystem instances. "];
+  Node0 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Ogre::PCZLightFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_p_c_z_light_factory.html",tooltip="Factory object for creating PCZLight instances. "];
+  Node0 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Ogre::PortalBaseFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_portal_base_factory.html",tooltip="Factory object for creating Portal instances. "];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Ogre::AntiPortalFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_anti_portal_factory.html",tooltip="Factory object for creating AntiPortal instances. "];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Ogre::PortalFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_portal_factory.html",tooltip="Factory object for creating Portal instances. "];
+  Node0 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Ogre::RibbonTrailFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_ribbon_trail_factory.html",tooltip="Factory object for creating RibbonTrail instances. "];
+}

@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::SceneQuery::WorldFragment",height=0.2,width=0.4,color="black",URL="$struct_ogre_1_1_scene_query_1_1_world_fragment.html",tooltip="Represents part of the world geometry that is a result of a SceneQuery. "];
+}

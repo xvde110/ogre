@@ -1,0 +1,28 @@
+digraph "Ogre::HighLevelGpuProgramFactory"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::HighLevelGpuProgram\lFactory",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="FactoryAlloc",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_allocated_object.html"];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Ogre::CgProgramFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_cg_program_factory.html",tooltip="Factory class for Cg programs. "];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Ogre::D3D11HLSLProgramFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_d3_d11_h_l_s_l_program_factory.html",tooltip="Factory class for D3D11 HLSL programs. "];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Ogre::D3D9HLSLProgramFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_d3_d9_h_l_s_l_program_factory.html",tooltip="Factory class for D3D9 HLSL programs. "];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Ogre::GLSL::GLSLProgramFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_s_l_1_1_g_l_s_l_program_factory.html",tooltip="Factory class for GLSL programs. "];
+  Node0 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Ogre::GLSLESCgProgramFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_s_l_e_s_cg_program_factory.html",tooltip="Factory class for GLSL ES programs. "];
+  Node0 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Ogre::GLSLESProgramFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_s_l_e_s_program_factory.html",tooltip="Factory class for GLSL ES programs. "];
+  Node0 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Ogre::GLSLShaderFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_g_l_s_l_shader_factory.html",tooltip="Factory class for GLSL shaders. "];
+  Node0 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Ogre::SPIRVShaderFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_s_p_i_r_v_shader_factory.html"];
+  Node0 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Ogre::UnifiedHighLevelGpu\lProgramFactory",height=0.2,width=0.4,color="black",URL="$class_ogre_1_1_unified_high_level_gpu_program_factory.html",tooltip="Factory class for Unified programs. "];
+}

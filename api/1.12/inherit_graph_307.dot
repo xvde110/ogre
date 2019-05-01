@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Ogre::VertexPoseKeyFrame\l::PoseRef",height=0.2,width=0.4,color="black",URL="$struct_ogre_1_1_vertex_pose_key_frame_1_1_pose_ref.html",tooltip="Reference to a pose at a given influence level. "];
+}
