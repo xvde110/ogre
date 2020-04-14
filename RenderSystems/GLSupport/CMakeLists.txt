@@ -63,7 +63,7 @@ elseif (APPLE)
   set(NATIVE_INCLUDES
     ${CMAKE_CURRENT_SOURCE_DIR}/include/OSX 
     ${PROJECT_SOURCE_DIR}/OgreMain/include/OSX)
-  set(PLATFORM_LIBS ${Cocoa_LIBRARY_FWK})
+  set(PLATFORM_LIBS "-framework CoreGraphics" "-framework Foundation" "-framework AppKit")
 elseif (UNIX)
   if(OGRE_GLSUPPORT_USE_EGL)
     file(GLOB PLATFORM_HEADERS "include/EGL/X11/*.h" "include/EGL/*.h")
@@ -103,6 +103,7 @@ add_library(OgreGLSupport STATIC
     src/OgreGLHardwarePixelBufferCommon.cpp
     src/OgreGLUniformCache.cpp
     src/OgreGLVertexArrayObject.cpp
+    src/OgreGLWindow.cpp
 )
 target_link_libraries(OgreGLSupport PUBLIC OgreMain PRIVATE ${PLATFORM_LIBS})
 target_include_directories(OgreGLSupport PUBLIC 
@@ -114,9 +115,5 @@ set_property(TARGET OgreGLSupport PROPERTY POSITION_INDEPENDENT_CODE ON)
 generate_export_header(OgreGLSupport 
     EXPORT_MACRO_NAME _OgreGLExport
     EXPORT_FILE_NAME ${PROJECT_BINARY_DIR}/include/OgreGLSupportPrerequisites.h)
-
-if (APPLE)
-    set_target_properties(OgreGLSupport PROPERTIES LINK_FLAGS "-framework Cocoa -framework OpenGL")
-endif()
 
 ogre_config_component(OgreGLSupport)

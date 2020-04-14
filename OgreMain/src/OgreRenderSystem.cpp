@@ -60,6 +60,7 @@ namespace Ogre {
         , mFaceCount(0)
         , mVertexCount(0)
         , mInvertVertexWinding(false)
+        , mIsReverseDepthBufferEnabled(false)
         , mDisabledTexUnitsFrom(0)
         , mCurrentPassIterationCount(0)
         , mCurrentPassIterationNum(0)
@@ -595,6 +596,11 @@ namespace Ogre {
 
         mDepthBufferPool.clear();
     }
+    void RenderSystem::_beginFrame(void)
+    {
+        if (!mActiveViewport)
+            OGRE_EXCEPT(Exception::ERR_INVALID_STATE, "Cannot begin frame - no viewport selected.");
+    }
     //-----------------------------------------------------------------------
     CullingMode RenderSystem::_getCullingMode(void) const
     {
@@ -636,6 +642,17 @@ namespace Ogre {
         }
     }
     //-----------------------------------------------------------------------
+    bool RenderSystem::isReverseDepthBufferEnabled() const
+    {
+        return mIsReverseDepthBufferEnabled;
+    }
+    //-----------------------------------------------------------------------
+    void RenderSystem::reinitialise()
+    {
+        shutdown();
+        _initialise();
+    }
+
     void RenderSystem::shutdown(void)
     {
         // Remove occlusion queries
@@ -1076,5 +1093,23 @@ namespace Ogre {
         mOptions[optStereoMode.name] = optStereoMode;
 #endif
     }
+
+    CompareFunction RenderSystem::reverseCompareFunction(CompareFunction func)
+    {
+        switch(func)
+        {
+        default:
+            return func;
+        case CMPF_LESS:
+            return CMPF_GREATER;
+        case CMPF_LESS_EQUAL:
+            return CMPF_GREATER_EQUAL;
+        case CMPF_GREATER_EQUAL:
+            return CMPF_LESS_EQUAL;
+        case CMPF_GREATER:
+            return CMPF_LESS;
+        }
+    }
+
 }
 

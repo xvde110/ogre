@@ -497,14 +497,6 @@ namespace Ogre {
                 BP_DOWN = 5
             };
 
-            /* Internal utility method for creating the planes of a skybox.
-            */
-            MeshPtr createSkyboxPlane(
-                BoxPlane bp,
-                Real distance,
-                const Quaternion& orientation,
-                const String& groupName);
-
             /* Internal utility method for creating the planes of a skydome.
             */
             MeshPtr createSkydomePlane(
@@ -663,6 +655,8 @@ namespace Ogre {
             GpuProgramParametersSharedPtr mShadowTextureCustomReceiverVPParams;
             GpuProgramParametersSharedPtr mShadowTextureCustomReceiverFPParams;
 
+            SamplerPtr mBorderSampler;
+
             TexturePtr mNullShadowTexture;
             CameraList mShadowTextureCameras;
             LightList mShadowTextureCurrentCasterLightList;
@@ -674,7 +668,6 @@ namespace Ogre {
             std::unique_ptr<Rectangle2D> mFullScreenQuad;
 
             ShadowTextureList mShadowTextures;
-            Texture* mCurrentShadowTexture;
 
             bool mShadowAdditiveLightClip;
             bool mDebugShadows;
@@ -773,7 +766,7 @@ namespace Ogre {
             */
             void setShadowVolumeStencilState(bool secondpass, bool zfail, bool twosided);
             /** Render a set of shadow renderables. */
-            void renderShadowVolumeObjects(ShadowCaster::ShadowRenderableListIterator iShadowRenderables,
+            void renderShadowVolumeObjects(const ShadowCaster::ShadowRenderableList& shadowRenderables,
                 Pass* pass, const LightList *manualLightList, unsigned long flags,
                 bool secondpass, bool zfail, bool twosided);
 
@@ -782,6 +775,9 @@ namespace Ogre {
             void setShadowIndexBufferSize(size_t size);
 
             const TexturePtr& getShadowTexture(size_t shadowIndex);
+
+            void resolveShadowTexture(TextureUnitState* tu, size_t shadowIndex, size_t shadowTexUnitIndex) const;
+
             void setShadowTextureSettings(uint16 size, uint16 count, PixelFormat fmt, uint16 fsaa,
                                           uint16 depthBufferPoolId);
             void setShadowTextureSize(unsigned short size);
@@ -791,6 +787,49 @@ namespace Ogre {
             void setShadowTextureConfig(size_t shadowIndex, const ShadowTextureConfig& config);
             void setShadowTextureConfig(size_t shadowIndex, uint16 width, uint16 height, PixelFormat format,
                                         uint16 fsaa, uint16 depthBufferPoolId);
+
+            typedef std::vector<ShadowCaster*> ShadowCasterList;
+            ShadowCasterList mShadowCasterList;
+            std::unique_ptr<SphereSceneQuery> mShadowCasterSphereQuery;
+            std::unique_ptr<AxisAlignedBoxSceneQuery> mShadowCasterAABBQuery;
+
+            /// Inner class to use as callback for shadow caster scene query
+            class _OgreExport ShadowCasterSceneQueryListener : public SceneQueryListener, public SceneMgtAlloc
+            {
+            protected:
+                SceneManager* mSceneMgr;
+                ShadowCasterList* mCasterList;
+                bool mIsLightInFrustum;
+                const PlaneBoundedVolumeList* mLightClipVolumeList;
+                const Camera* mCamera;
+                const Light* mLight;
+                Real mFarDistSquared;
+            public:
+                ShadowCasterSceneQueryListener(SceneManager* sm) : mSceneMgr(sm),
+                    mCasterList(0), mIsLightInFrustum(false), mLightClipVolumeList(0),
+                    mCamera(0), mFarDistSquared(0) {}
+                // Prepare the listener for use with a set of parameters
+                void prepare(bool lightInFrustum, const PlaneBoundedVolumeList* lightClipVolumes,
+                             const Light* light, const Camera* cam, ShadowCasterList* casterList,
+                             Real farDistSquared)
+                {
+                    mCasterList = casterList;
+                    mIsLightInFrustum = lightInFrustum;
+                    mLightClipVolumeList = lightClipVolumes;
+                    mCamera = cam;
+                    mLight = light;
+                    mFarDistSquared = farDistSquared;
+                }
+                bool queryResult(MovableObject* object);
+                bool queryResult(SceneQuery::WorldFragment* fragment);
+            };
+
+            std::unique_ptr<ShadowCasterSceneQueryListener> mShadowCasterQueryListener;
+
+            /** Internal method for locating a list of shadow casters which
+                could be affecting the frustum for a given light.
+            */
+            const ShadowCasterList& findShadowCastersForLight(const Light* light, const Camera* camera);
         } mShadowRenderer;
 
         /** Internal method to validate whether a Pass should be allowed to render.
@@ -881,17 +920,10 @@ namespace Ogre {
         /** Internal utility method for rendering a single object. 
         @remarks
             Assumes that the pass has already been set up.
-        @param rend The renderable to issue to the pipeline
-        @param pass The pass which is being used
+        @copydetail _injectRenderWithPass
         @param lightScissoringClipping If true, passes that have the getLightScissorEnabled
-            and/or getLightClipPlanesEnabled flags will cause calculation and setting of 
-            scissor rectangle and user clip planes. 
-        @param doLightIteration If true, this method will issue the renderable to
-            the pipeline possibly multiple times, if the pass indicates it should be
-            done once per light
-        @param manualLightList Only applicable if doLightIteration is false, this
-            method allows you to pass in a previously determined set of lights
-            which will be used for a single render of this object.
+        and/or getLightClipPlanesEnabled flags will cause calculation and setting of
+        scissor rectangle and user clip planes.
         */
         void renderSingleObject(Renderable* rend, const Pass* pass,
             bool lightScissoringClipping, bool doLightIteration, const LightList* manualLightList = 0);
@@ -992,11 +1024,6 @@ namespace Ogre {
         void _resumeRendering(RenderContext* context);
 
     protected:
-        typedef std::vector<ShadowCaster*> ShadowCasterList;
-        ShadowCasterList mShadowCasterList;
-        std::unique_ptr<SphereSceneQuery> mShadowCasterSphereQuery;
-        std::unique_ptr<AxisAlignedBoxSceneQuery> mShadowCasterAABBQuery;
-
         /// Visibility mask used to show / hide objects
         uint32 mVisibilityMask;
         bool mFindVisibleObjects;
@@ -1005,45 +1032,6 @@ namespace Ogre {
         /// Suppress shadows?
         bool mSuppressShadows;
 
-        /// Inner class to use as callback for shadow caster scene query
-        class _OgreExport ShadowCasterSceneQueryListener : public SceneQueryListener, public SceneMgtAlloc
-        {
-        protected:
-            SceneManager* mSceneMgr;
-            ShadowCasterList* mCasterList;
-            bool mIsLightInFrustum;
-            const PlaneBoundedVolumeList* mLightClipVolumeList;
-            const Camera* mCamera;
-            const Light* mLight;
-            Real mFarDistSquared;
-        public:
-            ShadowCasterSceneQueryListener(SceneManager* sm) : mSceneMgr(sm),
-                mCasterList(0), mIsLightInFrustum(false), mLightClipVolumeList(0), 
-                mCamera(0), mFarDistSquared(0) {}
-            // Prepare the listener for use with a set of parameters  
-            void prepare(bool lightInFrustum, 
-                const PlaneBoundedVolumeList* lightClipVolumes, 
-                const Light* light, const Camera* cam, ShadowCasterList* casterList, 
-                Real farDistSquared) 
-            {
-                mCasterList = casterList;
-                mIsLightInFrustum = lightInFrustum;
-                mLightClipVolumeList = lightClipVolumes;
-                mCamera = cam;
-                mLight = light;
-                mFarDistSquared = farDistSquared;
-            }
-            bool queryResult(MovableObject* object);
-            bool queryResult(SceneQuery::WorldFragment* fragment);
-        };
-
-        std::unique_ptr<ShadowCasterSceneQueryListener> mShadowCasterQueryListener;
-
-        /** Internal method for locating a list of shadow casters which
-            could be affecting the frustum for a given light.
-        */
-        const ShadowCasterList& findShadowCastersForLight(const Light* light,
-            const Camera* camera);
         /** Render a group in the ordinary way */
         void renderBasicQueueGroupObjects(RenderQueueGroup* pGroup,
             QueuedRenderableCollection::OrganisationMode om);
@@ -2187,7 +2175,7 @@ namespace Ogre {
 
 
         /** Creates a new BillboardSet for use with this scene manager.
-            @remarks
+
                 This method creates a new BillboardSet which is registered with
                 the SceneManager. The SceneManager will destroy this object when
                 it shuts down or when the SceneManager::clearScene method is
@@ -2204,6 +2192,7 @@ namespace Ogre {
         BillboardSet* createBillboardSet(unsigned int poolSize = 20);
 
         /** @overload
+            @copydoc createBillboardSet(unsigned int)
             @param
                 name The name to give to this billboard set. Must be unique.
         */
@@ -3089,14 +3078,14 @@ namespace Ogre {
         @remarks
             Instancing is a way of batching up geometry into a much more 
             efficient form, but with some limitations, and still be able to move & animate it.
-            Please @see InstanceManager class documentation for full information.
+            Please see @ref InstanceManager class documentation for full information.
         @param customName Custom name for referencing. Must be unique
         @param meshName The mesh name the instances will be based upon
         @param groupName The resource name where the mesh lives
         @param technique Technique to use, which may be shader based, or hardware based.
         @param numInstancesPerBatch Suggested number of instances per batch. The actual number
         may end up being lower if the technique doesn't support having so many. It can't be zero
-        @param flags Flags to pass to the InstanceManager @see InstanceManagerFlags
+        @param flags Flags to pass to the InstanceManager see #InstanceManagerFlags
         @param subMeshIdx InstanceManager only supports using one submesh from the base mesh. This parameter
         says which submesh to pick (must be <= Mesh::getNumSubMeshes())
         @return The new InstanceManager instance
@@ -3144,13 +3133,14 @@ namespace Ogre {
                                                 size_t numInstancesPerBatch, uint16 flags=0,
                                                 unsigned short subMeshIdx=0 );
 
-        /** Creates an InstancedEntity based on an existing InstanceManager (@see createInstanceManager)
-        @remarks
-            * Return value may be null if the InstanceManger technique isn't supported
-            * Try to keep the number of entities with different materials <b>to a minimum</b>
-            * For more information @see InstancedManager @see InstancedBatch, @see InstancedEntity
-            * Alternatively you can call InstancedManager::createInstanceEntity using the returned
-            pointer from createInstanceManager
+        /** Creates an InstancedEntity based on an existing InstanceManager
+
+        - Return value may be null if the InstanceManger technique isn't supported
+        - Try to keep the number of entities with different materials <b>to a minimum</b>
+
+        Alternatively you can call @ref InstanceManager::createInstancedEntity using the returned
+        pointer from createInstanceManager()
+        @see InstanceBatch
         @param materialName Material name 
         @param managerName Name of the instance manager
         @return An InstancedEntity ready to be attached to a SceneNode
@@ -3307,9 +3297,16 @@ namespace Ogre {
         bool getFlipCullingOnNegativeScale() const { return mFlipCullingOnNegativeScale; }
 
         /** Render something as if it came from the current queue.
-            @param pass     Material pass to use for setting up this quad.
-            @param rend     Renderable to render
-            @param shadowDerivation Whether passes should be replaced with shadow caster / receiver passes
+        @param rend The renderable to issue to the pipeline
+        @param pass The pass which is being used
+        @param doLightIteration If true, this method will issue the renderable to
+            the pipeline possibly multiple times, if the pass indicates it should be
+            done once per light
+        @param manualLightList Only applicable if doLightIteration is false, this
+            method allows you to pass in a previously determined set of lights
+            which will be used for a single render of this object.
+        @param shadowDerivation If false, disables the derivation of shadow
+            passes from original passes
          */
         void _injectRenderWithPass(Pass *pass, Renderable *rend, bool shadowDerivation = true,
             bool doLightIteration = false, const LightList* manualLightList = 0);

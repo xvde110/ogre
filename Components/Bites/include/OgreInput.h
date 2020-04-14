@@ -39,6 +39,7 @@ enum EventType {
     FINGERDOWN,
     FINGERUP,
     FINGERMOTION,
+    TEXTINPUT,
 };
 
 typedef int Keycode;
@@ -75,6 +76,10 @@ struct TouchFingerEvent {
     float x, y;
     float dx, dy;
 };
+struct TextInputEvent {
+    int type;
+    const char* chars;
+};
 
 union Event
 {
@@ -84,14 +89,16 @@ union Event
     MouseWheelEvent wheel;
     MouseMotionEvent motion;
     TouchFingerEvent tfinger;
+    TextInputEvent text;
 };
 
 // SDL compat
 enum {
+    SDLK_DELETE = int('\177'),
     SDLK_RETURN = int('\r'),
     SDLK_ESCAPE = int('\033'),
     SDLK_SPACE = int(' '),
-    SDLK_F1 = (1 << 30) | 58,
+    SDLK_F1 = (1 << 30) | 0x3A,
     SDLK_F2,
     SDLK_F3,
     SDLK_F4,
@@ -103,16 +110,41 @@ enum {
     SDLK_F10,
     SDLK_F11,
     SDLK_F12,
-    SDLK_PAGEUP = (1 << 30) | 75,
-    SDLK_PAGEDOWN = (1 << 30) | 78,
-    SDLK_RIGHT = (1 << 30) | 79,
+    SDLK_PRINTSCREEN,
+    SDLK_SCROLLLOCK,
+    SDLK_PAUSE,
+    SDLK_INSERT,
+    SDLK_HOME,
+    SDLK_PAGEUP,
+    SDLK_END = (1 << 30) | 0x4D,
+    SDLK_PAGEDOWN,
+    SDLK_RIGHT,
     SDLK_LEFT,
     SDLK_DOWN,
     SDLK_UP,
-    SDLK_KP_MINUS = (1 << 30) | 86,
+    SDLK_NUMLOCKCLEAR,
+    SDLK_KP_DIVIDE,
+    SDLK_KP_MULTIPLY,
+    SDLK_KP_MINUS,
     SDLK_KP_PLUS,
-    SDLK_LSHIFT = (1 << 30) | 225,
+    SDLK_KP_ENTER,
+    SDLK_KP_1,
+    SDLK_KP_2,
+    SDLK_KP_3,
+    SDLK_KP_4,
+    SDLK_KP_5,
+    SDLK_KP_6,
+    SDLK_KP_7,
+    SDLK_KP_8,
+    SDLK_KP_9,
+    SDLK_KP_0,
+    SDLK_KP_PERIOD,
+    SDLK_LSHIFT = (1 << 30) | 0xE1,
+    KMOD_ALT = 0x0100 | 0x0200,
     KMOD_CTRL = 0x0040 | 0x0080,
+    KMOD_GUI = 0x0400 | 0x0800,
+    KMOD_SHIFT = 0x0001 | 0x0002,
+    KMOD_NUM = 0x1000,
 };
 
 /**
@@ -132,6 +164,7 @@ struct _OgreBitesExport InputListener {
     virtual bool mouseWheelRolled(const MouseWheelEvent& evt) { return false; }
     virtual bool mousePressed(const MouseButtonEvent& evt) { return false; }
     virtual bool mouseReleased(const MouseButtonEvent& evt) { return false; }
+    virtual bool textInput(const TextInputEvent& evt) { return false; }
 };
 
 /**
@@ -231,6 +264,15 @@ public:
         for (auto listner : mListenerChain)
         {
             if (listner->mouseReleased(evt))
+                return true;
+        }
+        return false;
+    }
+    bool textInput (const TextInputEvent& evt)
+    {
+        for (auto listner : mListenerChain)
+        {
+            if (listner->textInput (evt))
                 return true;
         }
         return false;
